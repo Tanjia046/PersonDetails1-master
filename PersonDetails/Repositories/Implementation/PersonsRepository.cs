@@ -7,6 +7,11 @@ namespace PersonDetails.Repositories.Implementation
     public class PersonsRepository : Repository<Persons>, IPersonsRepository
     {
         public PersonsRepository(DbContext context) : base(context) { }
-     
+
+       
+
+
+
+
     }
 }

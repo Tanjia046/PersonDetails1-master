@@ -16,6 +16,20 @@ namespace PersonDetails
         public List<Persons> GetAll()
         {
             return _PersonsRepository.All().ToList();
+
         }
+
+        public void Add(Persons model)
+        {
+            _PersonsRepository.Add(model);
+
+
+        }
+
+
+
+
+
+
     }
 }

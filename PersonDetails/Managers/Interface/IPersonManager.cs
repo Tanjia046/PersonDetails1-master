@@ -5,6 +5,12 @@ namespace PersonDetails
 {
     public interface IPersonManager
     {
+
         List<Persons> GetAll();
+
+        void Add(Persons model);
+
+
     }
+
 }
