@@ -123,14 +123,26 @@ namespace PersonDetails.Repositories.Implementation
             return item;
         }
 
-        public void Add(Persons model)
+        public int SaveChanges()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var ignorClass = typeof(TEntity).IsDefined(typeof(Attribute), false);
+                int rowAffect = 0;
+
+                using (var scope = new TransactionScope())
+                {
+                    rowAffect = _context.SaveChanges();
+                    scope.Complete();
+                }
+                return rowAffect;
+            }
+            catch (Exception ex)
+            {
+                ex.WriteLog();
+                throw new Exception(ex.Message);
+            }
         }
-
-       
-
-
 
         #endregion
     }

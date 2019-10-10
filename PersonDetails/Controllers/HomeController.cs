@@ -48,35 +48,35 @@ namespace PersonDetails.Controllers
         }
 
 
-        [HttpGet]
-        public ActionResult Edit(int? Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Persons person = _person.Find(Id);
-            if (person == null)
-            {
-                return HttpNotFound();
-            }
-            return View(person);
+        //[HttpGet]
+        //public ActionResult Edit(int? Id)
+        //{
+        //    if (Id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Persons person = _person.Find(Id);
+        //    if (person == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(person);
 
-        }
+        //}
 
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,Address,Occupation, Area, Email, ContactNo, Code, Description, IsActive ")]  Persons person)
-        {
-            if (ModelState.IsValid)
-            {
-                _person.Entry(person).State = EntityState.Modified;
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,FirstName,Address,Occupation, Area, Email, ContactNo, Code, Description, IsActive ")]  Persons person)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _person.Entry(person).State = EntityState.Modified;
                 
-                return RedirectToAction("Index");
-            }
-            return View(person);
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(person);
+        //}
 
 
 
