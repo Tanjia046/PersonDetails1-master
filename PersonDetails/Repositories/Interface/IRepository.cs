@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonDetails.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,6 +14,12 @@ namespace PersonDetails.Repositories.Interface
         IQueryable<TEntity> All();
         bool Any(Expression<Func<TEntity, bool>> predicate);
         TEntity Find(Expression<Func<TEntity, bool>> predicate);
+
+        void Add(Persons model);
+        TEntity Create(TEntity item);
+
+        int SaveChanges();
+
         #endregion
     }
 }

@@ -38,7 +38,7 @@ namespace PersonDetails.Controllers
         {
             if (ModelState.IsValid)
             {
-                _person.Add (Person);
+                _person.Add(Person);
                 
                 return RedirectToAction("Index");
             }

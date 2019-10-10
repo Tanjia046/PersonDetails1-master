@@ -1,4 +1,5 @@
-﻿using PersonDetails.Repositories.Interface;
+﻿using PersonDetails.Models;
+using PersonDetails.Repositories.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -101,7 +102,34 @@ namespace PersonDetails.Repositories.Implementation
             return DbSet.AsNoTracking().FirstOrDefault(predicate);
         }
 
-        
+        public void Add(TEntity item)
+        {
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+            DbSet.Add(item);
+            if (!ShareContext)
+            {
+                SaveChanges();
+            }
+        }
+
+        public TEntity Create(TEntity item)
+        {
+            DbSet.Add(item);
+            if (!ShareContext)
+            {
+                SaveChanges();
+            }
+            return item;
+        }
+
+        public void Add(Persons model)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
 
 
         #endregion
